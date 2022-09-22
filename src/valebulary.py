@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import pygame
 import sys
 import time
@@ -7,9 +7,9 @@ from pygame.locals import *
 import numpy as np
 from wordentry import *
 
-here = Path(__file__).parent
-vocabulary = load_session(here / 'game_data' / 'vocabulary.obj')
-master_session = load_session(here / 'game_data' / 'master_session.obj')
+root = Path(__file__).parent.parent
+vocabulary = load_session(root / 'game_data' / 'vocabulary.obj')
+master_session = load_session(root / 'game_data' / 'master_session.obj')
 
 pygame.init()
 fps = 30
@@ -17,12 +17,12 @@ fpsClock = pygame.time.Clock()
 
 
 # Constants --------------------------------------------------------------
-title_font           = pygame.font.Font(str(here / "assets" / 'GoodUnicornRegular-Rxev.ttf'), 72)
-main_game_font       = pygame.font.Font(str(here / "assets" / 'Elementary_Gothic_Scaled.ttf'), 24)
-session_display_font = pygame.font.Font(str(here / "assets" / 'Elementary_Gothic_Scaled.ttf'), 12)
-correct_font         = pygame.font.Font(str(here / "assets" / 'Elementary_Gothic_Scaled.ttf'), 50)
-meaning_font         = pygame.font.Font(str(here / "assets" / 'Helvetica-Normal.ttf'), 26)
-example_font         = pygame.font.Font(str(here / "assets" / 'Helvetica-Normal.ttf'), 18)
+title_font           = pygame.font.Font(str(root / "assets" / 'GoodUnicornRegular-Rxev.ttf'), 72)
+main_game_font       = pygame.font.Font(str(root / "assets" / 'Elementary_Gothic_Scaled.ttf'), 24)
+session_display_font = pygame.font.Font(str(root / "assets" / 'Elementary_Gothic_Scaled.ttf'), 12)
+correct_font         = pygame.font.Font(str(root / "assets" / 'Elementary_Gothic_Scaled.ttf'), 50)
+meaning_font         = pygame.font.Font(str(root / "assets" / 'Helvetica-Normal.ttf'), 26)
+example_font         = pygame.font.Font(str(root / "assets" / 'Helvetica-Normal.ttf'), 18)
 
 screen_width = 1200
 screen_height = 675
@@ -730,7 +730,7 @@ class InputBox():
 				self.txt_surface = main_game_font.render(self.text, True, self.color)
 			else:
 				# NOTE
-				# This line here "fixes" the bug that makes the game quit when 
+				# This line root "fixes" the bug that makes the game quit when 
 				# pressing Enter and the input box is inactive. Not really the 
 				# best solution, try to come up with something cleverer
 				return ''
@@ -1007,7 +1007,7 @@ def run_game(surface):
 						if shown_word.entry == unknown_entry:
 							word_already_unknown = True
 
-					# Remove from the unkown stack if it was there
+					# Remove from the unkown stack if it was troot
 					if word_already_unknown:
 						entry_in_unknown_list = [entry for entry in current_session.unknown if entry == shown_word.entry][0]
 						current_session.unknown.remove(entry_in_unknown_list)
@@ -1035,7 +1035,7 @@ def run_game(surface):
 						for unknown_entry in current_session.unknown:
 							if shown_word.entry == unknown_entry:
 								word_already_unknown = True
-						# Add to unknown only if it wasn't already there
+						# Add to unknown only if it wasn't already troot
 						if not word_already_unknown:
 							current_session.unknown.append(shown_word.entry)
 						# If it was known, remove from known and add to unknown
@@ -1065,7 +1065,7 @@ def run_game(surface):
 				for unknown_entry in current_session.unknown:
 					if shown_word.entry == unknown_entry:
 						word_already_unknown = True
-				# Add to unknown only if it wasn't already there
+				# Add to unknown only if it wasn't already troot
 				if not word_already_unknown:
 					current_session.unknown.append(shown_word.entry)
 				# If it was known, remove from known and add to unknown
