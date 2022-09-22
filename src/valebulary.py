@@ -2,12 +2,14 @@
 import pygame
 import sys
 import time
+from pathlib import Path
 from pygame.locals import *
 import numpy as np
 from wordentry import *
 
-vocabulary = load_session('vocabulary.obj')
-master_session = load_session('master_session.obj')
+here = Path(__file__).parent
+vocabulary = load_session(here / 'game_data' / 'vocabulary.obj')
+master_session = load_session(here / 'game_data' / 'master_session.obj')
 
 pygame.init()
 fps = 30
@@ -15,12 +17,12 @@ fpsClock = pygame.time.Clock()
 
 
 # Constants --------------------------------------------------------------
-title_font           = pygame.font.Font('GoodUnicornRegular-Rxev.ttf', 72)
-main_game_font       = pygame.font.Font('Elementary_Gothic_Scaled.ttf', 24)
-session_display_font = pygame.font.Font('Elementary_Gothic_Scaled.ttf', 12)
-correct_font         = pygame.font.Font('Elementary_Gothic_Scaled.ttf', 50)
-meaning_font         = pygame.font.Font('Helvetica-Normal.ttf', 26)
-example_font         = pygame.font.Font('Helvetica-Normal.ttf', 18)
+title_font           = pygame.font.Font(str(here / "assets" / 'GoodUnicornRegular-Rxev.ttf'), 72)
+main_game_font       = pygame.font.Font(str(here / "assets" / 'Elementary_Gothic_Scaled.ttf'), 24)
+session_display_font = pygame.font.Font(str(here / "assets" / 'Elementary_Gothic_Scaled.ttf'), 12)
+correct_font         = pygame.font.Font(str(here / "assets" / 'Elementary_Gothic_Scaled.ttf'), 50)
+meaning_font         = pygame.font.Font(str(here / "assets" / 'Helvetica-Normal.ttf'), 26)
+example_font         = pygame.font.Font(str(here / "assets" / 'Helvetica-Normal.ttf'), 18)
 
 screen_width = 1200
 screen_height = 675
