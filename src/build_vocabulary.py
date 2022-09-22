@@ -177,10 +177,10 @@ def post_hoc_corrections(vocabulary):
 
 def export(vocabulary):
     # ## Finally, export vocabulary object as a pickle
-    with open(here.parent / 'assets' / 'vocabulary.obj', 'wb') as f:
+    with open(here.parent / 'game_data' / 'vocabulary.obj', 'wb') as f:
         pickle.dump(vocabulary, f)
     
-    with open(here.parent / 'assets' / 'master_session.obj', 'wb') as f:
+    with open(here.parent / 'game_data' / 'master_session.obj', 'wb') as f:
         pickle.dump(Session(vocabulary), f)
 
 if __name__ == "__main__":
