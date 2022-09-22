@@ -1,5 +1,6 @@
-import pandas as pd
-import random, pickle
+#!/usr/bin/env python
+import random
+import pickle
 
 class WordEntry():
 	"""Simple class to for a vocabulary word"""
