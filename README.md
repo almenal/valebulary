@@ -1,8 +1,10 @@
 <h1 align="center"> ValeBulary <br> GRE Hangman game </h1>
 
-<!-- <div align="center">
-    <img src="logo.png" width=50% height=50% align="center">
-</div> -->
+<div>
+    <img src="assets/home-screen.png" width=35% height=50% align="left">
+    <img src="assets/in-game-screenshot.png" width=55% height=50% align="none">
+</div>
+
 
 # 🔧 Set-up
 
